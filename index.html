@@ -1,24 +1,94 @@
-<!DOCTYPE html>
+<!DOCTYPE html><!DOCTYPE js>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Tinh Phạm</title>
-  <link rel="stylesheet" href="css/main.css">
-  <script
-  src="https://code.jquery.com/jquery-3.3.1.min.js"
-  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-  crossorigin="anonymous"></script>
-  <link rel="shortcut icon" href="img/github.ico" type="image/x-icon">
-  <script>
-    $(window).on('load',function () { 
-      $('.preloader').addClass('complete').delay(1000)
-     })
-  </script>
-</head>
-<body>
-  <div class="preloader"></div>
-  <div class="shadow"></div>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700&amp;display=swap"
+    />
+    <title>Hello Guys - I'm Pham Tinh</title>
+    <link rel="icon" href="./images/favicon.png" />
+    <link href="./main.css" rel="stylesheet" />
+  </head>
+  <body class="t-base">
+    <div class="sticky-menu">
+      <div class="sticky-info">
+        <a class="menu" href="/"
+          ><div class="menu__wrapper">
+            <img class="menu__img" src="./images/menu_icon.svg" alt="" />
+            <div class="menu__text">Menu</div>
+          </div>
+          <img class="menu__img-right" src="./images/logo.svg" alt=""
+        /></a>
+      </div>
+    </div>
+    <main>
+      <section class="banner">
+        <div class="container-banner">
+          <h1 class="title">Hello Guys!</h1>
+          <h2>I'm a</h2>
+          <h2>Junior Front-End Developer</h2>
+        </div>
+      </section>
+      <section class="cv">
+        <div class="cv__content">
+          <div class="cv__content-left">
+            <h4>About me</h4>
+            <p>
+              Meticulous web developer with over 2 years of front end experience
+              and passion for responsive website design and a firm believer in
+              the mobile-first approach. W3C certified. Implemented new
+              responsive website approach which increased mobile traffic by 20%.
+            </p>
+          </div>
+          <div class="cv__content-right">
+            <img src="./images/cv_1.jpg" alt="" />
+          </div>
+        </div>
+      </section>
+      <section class="work-with">
+        <h2>I Work With</h2>
+        <div class="work-with__wrapper">
+          <img src="./images/client_1.png" alt="client images" /><img
+            src="./images/client_2.png"
+            alt="client images"
+          /><img src="./images/client_3.png" alt="client images" /><img
+            src="./images/client_4.png"
+            alt="client images"
+          /><img src="./images/client_5.png" alt="client images" /><img
+            src="./images/client_6.png"
+            alt="client images"
+          /><img src="./images/client_7.png" alt="client images" /><img
+            src="./images/client_8.png"
+            alt="client images"
+          /><img src="./images/client_9.png" alt="client images" /><img
+            src="./images/client_10.png"
+            alt="client images"
+          /><img src="./images/client_11.png" alt="client images" /><img
+            src="./images/client_12.png"
+            alt="client images"
+          />
+        </div>
+      </section>
+      <div class="box"><div class="box__loader"></div></div>
+    </main>
+    <footer>
+      <div class="footer">
+        <div class="footer__wrapper">
+          <img class="footer__logo" src="./images/logo.svg" alt="" />
+          <h6 class="footer__text">
+            Whatever road i take though, we always reputation.
+          </h6>
+        </div>
+        <div class="footer__wrapper">
+          <h3 class="title">GET IN TOUCH</h3>
+          <a href="mailto:phamvu.tinh@@gmail.com?subject=You've%20got%20mail!"
+            >phamvu.tinh99@gmail.com</a
+          >
+        </div>
+      </div>
+    </footer>
+    <script src="./js/bundle.js"></script>
+  </body>
 </html>
