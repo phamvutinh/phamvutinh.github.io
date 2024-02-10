@@ -1,6 +1,5 @@
 import React from 'react';
 import Footer from './components/Footer';
-import TextReveal from './components/TextReveal';
 import Header from './components/Header';
 
 export default function HomePage() {
