@@ -3,11 +3,10 @@ import Link from 'next/link';
 
 const SiteSocials = () => {
   const SOCIALS = [
-    { to: '/dashboard', name: 'drib' },
-    { to: '/dashboard', name: 'twitter' },
-    { to: '/dashboard', name: 'fbook' },
-    { to: '/dashboard', name: 'insta' },
-    { to: '/dashboard', name: 'github' }
+    { to: 'https://twitter.com/phamvutinh99', name: 'twitter' },
+    { to: 'https://web.facebook.com/phamvu.tinh', name: 'fbook' },
+    { to: 'https://www.instagram.com/phamvu.tinh', name: 'insta' },
+    { to: 'https://github.com/phamvutinh', name: 'github' }
   ];
   return (
     <ul className="p-0 m-0 flex md:fixed md:right-[3.5vw] md:-translate-y-[50%] md:rotate-[180deg] md:top-[50%] md:[writing-mode:vertical-lr]">
