@@ -1,9 +1,10 @@
 import type { Metadata } from 'next';
 import { DM_Sans } from 'next/font/google';
 
-import './globals.css';
+import Canvas from './components/Canvas';
 import Footer from './components/Footer';
 import Header from './components/Header';
+import './globals.css';
 const dmSans = DM_Sans({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
@@ -19,8 +20,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en-US">
-      <body className={dmSans.className}>
+      <body className={`${dmSans.className} h-screen overflow-hidden`}>
         <Header />
+        <Canvas />
         {children}
         <Footer />
       </body>

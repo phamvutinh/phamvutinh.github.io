@@ -2,7 +2,8 @@
 const nextConfig = {
   experimental: {
     serverActions: true
-  }
+  },
+  transpilePackages: ['three']
 };
 
 module.exports = nextConfig;
