@@ -1,9 +1,4 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
-  experimental: {
-    serverActions: true
-  },
-  transpilePackages: ['three']
-};
+const nextConfig = { output: 'export', transpilePackages: ['three'] };
 
 module.exports = nextConfig;

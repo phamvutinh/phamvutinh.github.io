@@ -1,10 +1,9 @@
-import { sendEmail } from '@/app/actions';
 import ButtonSubmit from './ButtonSubmit';
 import Input from './Input';
 
 const ContactForm = () => {
   return (
-    <form action={sendEmail}>
+    <form>
       <div className="flex mt-5">
         <div className="basis-1/2">
           <Input
