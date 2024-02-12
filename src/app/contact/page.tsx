@@ -3,7 +3,7 @@ import React from 'react';
 const Contact = () => {
   return (
     <div className="min-w-full fixed left-[3.5vw] -translate-y-1/2 top-[50%] flex">
-      <div className="basis-1/3">This is place for model 3D</div>
+      <div className="basis-1/3" />
       <div className="basis-1/2">
         <div className="pb-[5vh]">
           <h2 className="text-5xl font-semibold mb-5">

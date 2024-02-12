@@ -6,15 +6,56 @@ import {
   ShadowType,
   useGLTF
 } from '@react-three/drei';
-import { Canvas, useFrame } from '@react-three/fiber';
-import { useRef } from 'react';
+import { Canvas, useFrame, useThree } from '@react-three/fiber';
+import gsap from 'gsap';
+import React, {
+  forwardRef,
+  useEffect,
+  useImperativeHandle,
+  useRef
+} from 'react';
 import * as THREE from 'three';
+import { usePathname } from 'next/navigation';
 
-function Model(props: any) {
+const Model = forwardRef((props, ref) => {
   const group = useRef<THREE.Group>();
-  const shadow = useRef<THREE.Object3D>(); // Add type assertion here
-
+  const shadow = useRef<THREE.Object3D>();
   const { nodes } = useGLTF('/geo.min.glb', true);
+
+  const pathname = usePathname();
+  const { camera } = useThree();
+
+  useEffect(() => {
+    if (pathname === '/contact') {
+      if (group.current) {
+        gsap.to(group.current.position, {
+          x: -3,
+          duration: 1.5
+        });
+      }
+
+      if (shadow.current) {
+        gsap.to(shadow.current.position, {
+          x: -3,
+          duration: 1.5
+        });
+      }
+
+      gsap.to(camera.position, {
+        z: 5,
+        duration: 1.5
+      });
+    }
+  }, [pathname]);
+
+  useImperativeHandle(
+    ref,
+    () => ({
+      getGroup: () => group.current
+    }),
+    []
+  );
+
   useFrame(({ clock }) => {
     const t = (1 + Math.sin(clock.getElapsedTime() * 1.5)) / 2;
     if (!group.current || !shadow.current) return;
@@ -56,12 +97,13 @@ function Model(props: any) {
       />
     </group>
   );
-}
+});
+Model.displayName = 'Model_3D';
 
 const CanvasEl = () => {
   return (
     <div className="w-full h-screen">
-      <Canvas shadows camera={{ position: [0, 0, 3] }}>
+      <Canvas shadows camera={{ fov: 55, position: [0, 0, 3] }}>
         <ambientLight intensity={Math.PI / 2} />
         <spotLight
           position={[10, 10, 10]}
