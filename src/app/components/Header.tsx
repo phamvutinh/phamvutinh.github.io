@@ -7,7 +7,7 @@ const Header = () => {
       <LinkCustom
         href="/contact"
         label="contact."
-        className="fixed font-semibold top-[2vh] right-[3.5vw]"
+        className="fixed z-10 font-semibold top-[2vh] right-[3.5vw]"
       />
     </header>
   );
