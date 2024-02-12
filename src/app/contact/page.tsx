@@ -1,5 +1,4 @@
 import React from 'react';
-import ContactForm from './components/ContactForm';
 
 const Contact = () => {
   return (
@@ -15,7 +14,16 @@ const Contact = () => {
             message.
           </p>
         </div>
-        <ContactForm />
+        <div className="mt-[5vh]">
+          <h5>email:</h5>
+          <a
+            className="text-4xl block mt-3"
+            href="mailto:phamvu.tinh99@gmail.com"
+            target="_blank"
+          >
+            phamvu.tinh99@gmail.com
+          </a>
+        </div>
       </div>
     </div>
   );
