@@ -47,6 +47,7 @@ function Model(props: any) {
           <meshBasicMaterial wireframe />
         </mesh>
       </group>
+
       <Shadow
         ref={shadow as React.RefObject<ShadowType>}
         opacity={0.3}
@@ -60,7 +61,7 @@ function Model(props: any) {
 const CanvasEl = () => {
   return (
     <div className="w-full h-screen">
-      <Canvas>
+      <Canvas shadows camera={{ position: [0, 0, 3] }}>
         <ambientLight intensity={Math.PI / 2} />
         <spotLight
           position={[10, 10, 10]}
