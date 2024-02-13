@@ -8,6 +8,7 @@ import {
 } from '@react-three/drei';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import gsap from 'gsap';
+import { usePathname } from 'next/navigation';
 import React, {
   forwardRef,
   useEffect,
@@ -15,9 +16,8 @@ import React, {
   useRef
 } from 'react';
 import * as THREE from 'three';
-import { usePathname } from 'next/navigation';
 
-const Model = forwardRef((props, ref) => {
+const Model = () => {
   const group = useRef<THREE.Group>();
   const shadow = useRef<THREE.Object3D>();
   const { nodes } = useGLTF('/geo.min.glb', true);
@@ -27,48 +27,29 @@ const Model = forwardRef((props, ref) => {
 
   useEffect(() => {
     if (pathname === '/contact') {
-      if (group.current) {
-        gsap.to(group.current.position, {
-          x: -3,
-          duration: 1.5
-        });
-      }
-
-      if (shadow.current) {
-        gsap.to(shadow.current.position, {
-          x: -3,
-          duration: 1.5
-        });
-      }
-
-      gsap.to(camera.position, {
-        z: 5,
-        duration: 1.5
-      });
+      const CONTACT_TRANSITION = { x: -3, duration: 1.5 };
+      if (group.current) gsap.to(group.current.position, CONTACT_TRANSITION);
+      if (shadow.current) gsap.to(shadow.current.position, CONTACT_TRANSITION);
+      gsap.to(camera.position, { z: 5, duration: 1.5 });
+    } else {
+      const HOME_TRANSITION = { x: 0, duration: 1.5 };
+      if (group.current) gsap.to(group.current.position, HOME_TRANSITION);
+      if (shadow.current) gsap.to(shadow.current.position, HOME_TRANSITION);
+      gsap.to(camera.position, { z: 3, duration: 1.5 });
     }
   }, [pathname]);
-
-  useImperativeHandle(
-    ref,
-    () => ({
-      getGroup: () => group.current
-    }),
-    []
-  );
 
   useFrame(({ clock }) => {
     const t = (1 + Math.sin(clock.getElapsedTime() * 1.5)) / 2;
     if (!group.current || !shadow.current) return;
-    (group.current as THREE.Group).position.y = t / 3;
-    (shadow.current as THREE.Object3D).scale.y = (
-      shadow.current as THREE.Object3D
-    ).scale.z = 1 + t; // Fix the problem by adding type assertion
-    (shadow.current as THREE.Object3D).scale.x = (1 + t) * 1.25; // Fix the problem by adding type assertion
+    group.current.position.y = t / 3;
+    shadow.current.scale.y = shadow.current.scale.z = 1 + t;
+    shadow.current.scale.x = (1 + t) * 1.25;
     group.current.rotation.x = group.current.rotation.z += 0.005;
   });
 
   return (
-    <group {...props} dispose={null}>
+    <group dispose={null}>
       <group ref={group as React.RefObject<THREE.Group>}>
         <mesh
           geometry={(nodes.geo as THREE.Mesh).geometry}
@@ -97,8 +78,7 @@ const Model = forwardRef((props, ref) => {
       />
     </group>
   );
-});
-Model.displayName = 'Model_3D';
+};
 
 const CanvasEl = () => {
   return (
